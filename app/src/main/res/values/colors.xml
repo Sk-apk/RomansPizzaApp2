@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Romans Pizza Brand Colors -->
+    <color name="pizza_red">#D32F2F</color>
+    <color name="pizza_red_dark">#B71C1C</color>
+    <color name="pizza_blue">#000080</color>
+    <color name="pizza_yellow">#FBC02D</color>
+    <color name="pizza_cream">#FFF8E1</color>
+
+    <!-- UI Colors -->
+    <color name="background_light">#000080</color>
+    <color name="background_dark">#1A1A1A</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#FFFFFF</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="error">#F44336</color>
+    <color name="success">#4CAF50</color>
+
+    <!-- Transparent overlays -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#40FFFFFF</color>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Romans Pizza</string>
+
+    <!-- Auth Strings -->
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="login_subtitle">Login to your account</string>
+    <string name="create_account">Create Account</string>
+    <string name="register_subtitle">Join Romans Pizza family</string>
+
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="address">Delivery Address</string>
+
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="have_account">Already have an account?</string>
+    <string name="sign_up">Sign Up</string>
+
+    <!-- Validation Messages -->
+    <string name="error_empty_email">Email is required</string>
+    <string name="error_invalid_email">Invalid email format</string>
+    <string name="error_empty_password">Password is required</string>
+    <string name="error_short_password">Password must be at least 6 characters</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+    <string name="error_empty_name">Name is required</string>
+    <string name="error_empty_phone">Phone number is required</string>
+    <string name="error_invalid_phone">Invalid phone number</string>
+    <string name="error_empty_address">Address is required</string>
+
+    <!-- Success/Error Messages -->
+    <string name="login_success">Login successful!</string>
+    <string name="login_failed">Invalid email or password</string>
+    <string name="register_success">Registration successful!</string>
+    <string name="register_failed">Registration failed. Try again.</string>
+    <string name="email_exists">Email already registered</string>
+</resources>

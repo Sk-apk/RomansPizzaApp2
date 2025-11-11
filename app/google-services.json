@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1025245996001",
+    "project_id": "romans-pizza-e4694",
+    "storage_bucket": "romans-pizza-e4694.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025245996001:android:bd098a5d6ec55b4c15a8a0",
+        "android_client_info": {
+          "package_name": "com.example.romanspizza"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqQpiliJrPQgeL0Q7uH96WtYyz96dFh-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
