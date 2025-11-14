@@ -6,8 +6,10 @@
     <color name="pizza_blue">#000080</color>
     <color name="pizza_yellow">#FBC02D</color>
     <color name="pizza_cream">#FFF8E1</color>
+    <color name="pizza_orange">#FFA500</color>
 
     <!-- UI Colors -->
+
     <color name="background_light">#000080</color>
     <color name="background_dark">#1A1A1A</color>
     <color name="text_primary">#212121</color>

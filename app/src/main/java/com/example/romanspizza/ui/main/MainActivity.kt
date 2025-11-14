@@ -104,8 +104,14 @@ class MainActivity : AppCompatActivity() {
             .setTitle("Menu")
             .setItems(options) { _, which ->
                 when (which) {
-                    0 -> showToast("Profile - Coming soon!")
-                    1 -> showToast("Order History - Coming soon!")
+                    0 -> {
+                        // Navigate to Profile
+                        startActivity(Intent(this, com.example.romanspizza.ui.profile.ProfileActivity::class.java))
+                    }
+                    1 -> {
+                        // Navigate to Order History
+                        startActivity(Intent(this, com.example.romanspizza.ui.profile.OrderHistoryActivity::class.java))
+                    }
                     2 -> showToast("Settings - Coming soon!")
                     3 -> performLogout()
                 }

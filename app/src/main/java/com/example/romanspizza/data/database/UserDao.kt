@@ -15,6 +15,32 @@ class UserDao(context: Context) {
         return bytes.joinToString("") { "%02x".format(it) }
     }
 
+
+
+    fun updateUser(userId: Int, fullName: String, phone: String, address: String): Boolean {
+        val db = dbHelper.writableDatabase
+        val values = ContentValues().apply {
+            put(DatabaseHelper.COLUMN_FULL_NAME, fullName)
+            put(DatabaseHelper.COLUMN_PHONE, phone)
+            put(DatabaseHelper.COLUMN_ADDRESS, address)
+        }
+
+        return try {
+            val rows = db.update(
+                DatabaseHelper.TABLE_USERS,
+                values,
+                "${DatabaseHelper.COLUMN_ID} = ?",
+                arrayOf(userId.toString())
+            )
+            db.close()
+            rows > 0
+        } catch (e: Exception) {
+            db.close()
+            false
+        }
+    }
+
+
     // Register new user
     fun registerUser(user: User): Long {
         val db = dbHelper.writableDatabase
