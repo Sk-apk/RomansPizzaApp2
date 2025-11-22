@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // ADD THIS ENTIRE METHOD
+
     private fun setupBackPressHandler() {
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
