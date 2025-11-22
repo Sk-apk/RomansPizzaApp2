@@ -11,6 +11,103 @@ import java.util.Locale
 class OrderDao(context: Context) {
     private val dbHelper = DatabaseHelper(context)
 
+    // Update order status
+    fun updateOrderStatus(orderId: Int, newStatus: String): Boolean {
+        val db = dbHelper.writableDatabase
+        val values = ContentValues().apply {
+            put(DatabaseHelper.COLUMN_STATUS, newStatus)
+        }
+
+        return try {
+            val rows = db.update(
+                DatabaseHelper.TABLE_ORDERS,
+                values,
+                "${DatabaseHelper.COLUMN_ORDER_ID} = ?",
+                arrayOf(orderId.toString())
+            )
+            db.close()
+            rows > 0
+        } catch (e: Exception) {
+            db.close()
+            false
+        }
+    }
+
+    // Get order status step (for progress indicator)
+    fun getOrderStatusStep(status: String): Int {
+        return when (status) {
+            "Pending" -> 1
+            "Confirmed" -> 2
+            "Preparing" -> 3
+            "Out for Delivery" -> 4
+            "Delivered" -> 5
+            else -> 0
+        }
+    }
+
+    // Calculate estimated delivery time (30-45 minutes from order time)
+    fun getEstimatedDeliveryTime(orderDate: Long, status: String): String {
+        val estimatedMinutes = when (status) {
+            "Pending", "Confirmed" -> 45
+            "Preparing" -> 30
+            "Out for Delivery" -> 15
+            "Delivered" -> 0
+            else -> 45
+        }
+
+        val estimatedTime = orderDate + (estimatedMinutes * 60 * 1000)
+        val now = System.currentTimeMillis()
+
+        return if (estimatedTime > now) {
+            val remainingMinutes = ((estimatedTime - now) / (60 * 1000)).toInt()
+            if (remainingMinutes > 0) {
+                "$remainingMinutes mins"
+            } else {
+                "Arriving soon"
+            }
+        } else {
+            "Delivered"
+        }
+    }
+
+
+    // Get active orders (not delivered or cancelled)
+    fun getActiveOrders(userId: Int): List<Order> {
+        val orders = mutableListOf<Order>()
+        val db = dbHelper.readableDatabase
+
+        val cursor = db.query(
+            DatabaseHelper.TABLE_ORDERS,
+            null,
+            "${DatabaseHelper.COLUMN_USER_ID} = ? AND ${DatabaseHelper.COLUMN_STATUS} NOT IN (?, ?)",
+            arrayOf(userId.toString(), "Delivered", "Cancelled"),
+            null, null,
+            "${DatabaseHelper.COLUMN_ORDER_DATE} DESC"
+        )
+
+        while (cursor.moveToNext()) {
+            val orderId = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ORDER_ID))
+
+            orders.add(
+                Order(
+                    orderId = orderId,
+                    userId = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_USER_ID)),
+                    orderDate = cursor.getLong(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ORDER_DATE)),
+                    totalAmount = cursor.getDouble(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_TOTAL_AMOUNT)),
+                    status = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_STATUS)),
+                    deliveryAddress = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_DELIVERY_ADDRESS)),
+                    items = getOrderItems(orderId)
+                )
+            )
+        }
+
+        cursor.close()
+        db.close()
+        return orders
+    }
+
+
+
     // Get order items for a specific order
     private fun getOrderItems(orderId: Int): List<OrderItem> {
         val items = mutableListOf<OrderItem>()

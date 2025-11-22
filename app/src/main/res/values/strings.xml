@@ -67,4 +67,23 @@
     <string name="register_success">Registration successful!</string>
     <string name="register_failed">Registration failed. Try again.</string>
     <string name="email_exists">Email already registered</string>
+
+    <!-- Order Tracking Strings -->
+    <string name="order_tracking">Order Tracking</string>
+    <string name="active_orders">Active Orders</string>
+    <string name="track_order">Track Order</string>
+    <string name="no_active_orders">No active orders</string>
+    <string name="place_order_to_track">Place an order to start tracking</string>
+    <string name="estimated_delivery">Estimated Delivery</string>
+    <string name="order_placed">Order Placed</string>
+    <string name="order_confirmed">Order Confirmed</string>
+    <string name="preparing_order">Preparing Your Order</string>
+    <string name="out_for_delivery">Out for Delivery</string>
+    <string name="order_delivered">Order Delivered</string>
+    <string name="delivery_in_progress">Delivery in Progress</string>
+    <string name="arriving_soon">Arriving Soon</string>
+
+    <!-- Time Strings -->
+    <string name="minutes">minutes</string>
+    <string name="mins">mins</string>
 </resources>

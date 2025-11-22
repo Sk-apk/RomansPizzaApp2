@@ -23,7 +23,7 @@ import com.example.romanspizza.utils.SharedPrefsManager
 import com.example.romanspizza.ui.menu.MenuAdapter
 import com.example.romanspizza.ui.menu.PizzaDetailActivity
 
-// CHANGED: MenuActivity → MainActivity
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var toolbar: MaterialToolbar
@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showMenuOptions() {
-        val options = arrayOf("Profile", "Order History", "Settings", "Logout")
+        val options = arrayOf("Profile", "Order History", "Track Orders", "Settings", "Logout")
 
         AlertDialog.Builder(this)
             .setTitle("Menu")
@@ -112,8 +112,12 @@ class MainActivity : AppCompatActivity() {
                         // Navigate to Order History
                         startActivity(Intent(this, com.example.romanspizza.ui.profile.OrderHistoryActivity::class.java))
                     }
-                    2 -> showToast("Settings - Coming soon!")
-                    3 -> performLogout()
+                    2 -> {
+                        // Navigate to Track Orders
+                        startActivity(Intent(this, com.example.romanspizza.ui.tracking.ActiveOrdersActivity::class.java))
+                    }
+                    3 -> showToast("Settings - Coming soon!")
+                    4 -> performLogout()
                 }
             }
             .show()

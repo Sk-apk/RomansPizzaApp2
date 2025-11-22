@@ -200,11 +200,18 @@ class CartActivity : AppCompatActivity() {
             // Clear cart
             cartDao.clearCart(userId)
 
-            // Show success dialog
+            // Show success dialog with tracking option
             AlertDialog.Builder(this)
                 .setTitle("Order Placed!")
                 .setMessage("Your order has been placed successfully!\nOrder ID: $orderId\nTotal: ${CurrencyUtils.formatPrice(total)}\n\nDelivering to: ${user.address}")
-                .setPositiveButton("OK") { _, _ ->
+                .setPositiveButton("Track Order") { _, _ ->
+                    // Navigate to order tracking
+                    val trackIntent = Intent(this, com.example.romanspizza.ui.tracking.OrderTrackingActivity::class.java)
+                    trackIntent.putExtra("ORDER_ID", orderId.toInt())
+                    startActivity(trackIntent)
+                    finish()
+                }
+                .setNegativeButton("Back to Menu") { _, _ ->
                     finish()
                 }
                 .setCancelable(false)

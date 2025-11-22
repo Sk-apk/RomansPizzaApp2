@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <!-- Icon & Line Column -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Status Icon -->
+        <TextView
+            android:id="@+id/tvStatusIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="✓"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:background="@drawable/bg_button"
+            android:textColor="@color/background_light" />
+
+        <!-- Timeline Line -->
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:background="@color/success" />
+
+    </LinearLayout>
+
+    <!-- Status Info Column -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvStatusTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Placed"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/tvStatusDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We've received your order"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

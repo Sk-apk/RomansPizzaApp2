@@ -21,4 +21,11 @@
     <!-- Transparent overlays -->
     <color name="overlay_dark">#80000000</color>
     <color name="overlay_light">#40FFFFFF</color>
+
+    <!--Order tracking -->
+    <color name="status_pending">#FF9800</color>
+    <color name="status_preparing">#FBC02D</color>
+    <color name="status_delivering">#2196F3</color>
+    <color name="status_completed">#4CAF50</color>
+    <color name="status_cancelled">#F44336</color>
 </resources>

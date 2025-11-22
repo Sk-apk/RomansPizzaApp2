@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
+        <!-- Tracking Activities -->
+        <activity
+            android:name=".ui.tracking.ActiveOrdersActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.tracking.OrderTrackingActivity"
+            android:exported="false" />
 
         <activity
             android:name=".ui.menu.MenuActivity"
